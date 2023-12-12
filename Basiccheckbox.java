@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Basiccheckbox {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		//EdgeDriver driver = new EdgeDriver();
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://leafground.com/checkbox.xhtml");
@@ -21,11 +21,12 @@ public class Basiccheckbox {
 		driver.findElement(By.xpath("//*[text()='C-Sharp']/preceding-sibling::*[1]")).click();
 		driver.findElement(By.xpath("//*[text()='Others']/preceding-sibling::*[1]")).click();
 		driver.findElement(By.xpath("(//div[@class='grid formgrid'])[4]//div[@class='ui-chkbox-box ui-widget ui-corner-all ui-state-default']")).click();
-	    driver.findElement(By.xpath("(//div[@class='ui-selectbooleancheckbox ui-chkbox ui-widget'])[3]")).isDisplayed();
-	    System.out.println("true");
-	    WebElement MultipleDD = driver.findElement(By.xpath("//ul[@data-label='Cities']"));
-	    Select sec = new Select(MultipleDD);
-	    sec.deselectByVisibleText("London");
+	    Thread.sleep(3000);
+		driver.findElement(By.xpath("(//span[@class='ui-icon ui-icon-triangle-1-s']")).click();
+	    //System.out.println("true");
+	    //WebElement MultipleDD = driver.findElement(By.xpath("//ul[@data-label='Cities']"));
+	    //Select sec = new Select(MultipleDD);
+	    //sec.deselectByVisibleText("London");
 	    
 	    
 	    

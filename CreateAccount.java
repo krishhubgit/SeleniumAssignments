@@ -38,7 +38,8 @@ public class CreateAccount {
 		Select sec4 = new Select(StateDD);	
 		sec4.selectByIndex(50);
 		driver.findElement(By.xpath("//input[@value='Create Account']")).click();
-		
+		String text = driver.findElement(By.xpath("")).getText();
+		System.out.println("text");
 		
 		
 		

@@ -1,6 +1,9 @@
 package week3.day2;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class PVR {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, ParseException {
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://www.pvrcinemas.com/ ");
 		driver.manage().window().maximize();
@@ -43,6 +46,22 @@ public class PVR {
 		driver.findElement(By.xpath("//input[@name='mobile']")).sendKeys("9876543210");
 		driver.findElement(By.xpath("//input[@name='comment']")).sendKeys("NA");
 		driver.findElement(By.xpath("//div[@class='datepicker-container datepicker-default']")).click();
+		String expectedDate = "11/16/2023";
+		String[] dateVal =expectedDate.split("/");
+		int monthToSelect = Integer.parseInt(dateVal[1]);
+		String selectMonth = driver.findElement(By.xpath("//span[@class='month-year-text']")).getText();
+		System.out.println(selectMonth);
+		SimpleDateFormat inputFormat =new SimpleDateFormat("MMMMM");
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(inputFormat.parse(selectMonth));
+		SimpleDateFormat outputFormat = new SimpleDateFormat("MM");
+		System.out.println(outputFormat.format(cal.getTime()));
+		int presentMonth = Integer.parseInt(outputFormat.format(cal.getTime()));
+		System.out.println(presentMonth);
+		if (monthToSelect > presentMonth) {
+			driver.findElement(By.xpath("//span[text()='November 2023']")).click();
+			
+		}
 		driver.findElement(By.xpath("//input[@name='noOfTickets']")).sendKeys("5");
 		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("xyz@gmail.com");
 		WebElement FoodDD = driver.findElement(By.xpath("//select[@name='food']"));

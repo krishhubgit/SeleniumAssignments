@@ -25,7 +25,7 @@ public class EditLead {
 		driver.findElement(By.xpath("//input[@id='updateLeadForm_companyName']")).clear();
 		driver.findElement(By.xpath("//input[@id='updateLeadForm_companyName']")).sendKeys("Microsoft");
 		driver.findElement(By.xpath("//input[@class='smallSubmit']")).click();
-		
+		driver.close();
 		
 
 	}

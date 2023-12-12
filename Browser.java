@@ -1,38 +1,12 @@
-package week3.day1;
+package week1.day1;
 
-public class Browser extends Chrome{
-
-	public void openURL() {
-			System.out.println("openURL");
-	}
-	public void closeBrowser() {
-				System.out.println("closeBrowser");	
-	}
-	public void navigateBack() {
-		System.out.println("navigateBack");
-	}
-	
-	
-		
-	public static void main(String[] args) {
-		Chrome obj = new Chrome();
-		Edge obj1 = new Edge();
-		Safari obj2 = new Safari();		
-		obj.openIncognito();
-		obj.clearCache();
-		obj1.clearCookies();
-		obj1.takeSnap();
-		obj2.readerMode();
-		obj2.fullScreenMode();
-		
-		
-		
-		
-		
-		
-		
-		
-
-	}
-
+public class Browser {
+public static void main(String[] args) {
+	float browserVersion = 6.8f;
+	String browserName = "Chrome";
+	boolean pageLoaded = true;
+	int noOfBrowser = 5;
+	char browserLogo = 'C';
+	System.out.println(browserVersion+" "  +browserName+" "  +pageLoaded+ " " +noOfBrowser+ " "  +browserLogo);
+}
 }
